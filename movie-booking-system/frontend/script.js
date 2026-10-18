@@ -105,7 +105,7 @@ function showMovies() {
             "https://image.tmdb.org/t/p/w500/5QW0Yp7rQ0bQ6sQ6vQ4kQ8Q8Q8Q.jpg"
     };
 
-    fetch("http://localhost:8080/api/movies")
+    fetch("https://cineglow-zdz6.onrender.com/api/movies")
         .then(function (response) {
             if (!response.ok) {
                 throw new Error("Could not load movies.");
