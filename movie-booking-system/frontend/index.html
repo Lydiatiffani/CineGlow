@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineGlow | Movie Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">✦</span> CineGlow
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">Experience</a>
+            <button class="nav-button" onclick="goToLogin()">
+                Sign In
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <p class="eyebrow">
+                    ✦ YOUR NEXT CINEMATIC ESCAPE ✦
+                </p>
+
+                <h1>
+                    Lights down.<br>
+                    <span>Magic on.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Your favourite stories. Your perfect seats.
+                    One unforgettable movie experience.
+                </p>
+
+                <button class="primary-button" onclick="goToLogin()">
+                    Book Your Tickets
+                    <span>→</span>
+                </button>
+
+                <p class="hero-note">
+                    ✨ Your next favourite movie awaits
+                </p>
+            </div>
+
+            <div class="hero-art" aria-label="Cinema illustration">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="glow-circle">
+                    <div class="clapper">
+                        <div class="clapper-top">▰ ▰ ▰ ▰</div>
+                        <div class="clapper-body">
+                            <span>NOW</span>
+                            <strong>SHOWING</strong>
+                            <small>YOUR NEXT ADVENTURE</small>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="spark spark-one">✦</span>
+                <span class="spark spark-two">✧</span>
+                <span class="spark spark-three">✦</span>
+            </div>
+
+        </section>
+
+        <section class="experience" id="about">
+            <p class="eyebrow">MORE THAN JUST A MOVIE</p>
+
+            <h2>Your movie night, <span>reimagined.</span></h2>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Movies you'll love</h3>
+                    <p>Discover films across your favourite genres.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">💺</div>
+                    <h3>Your perfect seat</h3>
+                    <p>Choose where you want to enjoy the show.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Easy booking</h3>
+                    <p>Plan your next cinema experience in a few steps.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#home" class="logo">✦ CineGlow</a>
+        <p>Made for the love of cinema. 🍿</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
