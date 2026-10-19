@@ -346,7 +346,7 @@ function showBookingSummary(movie, seats, pricePerSeat) {
 
             try {
                 const response = await fetch(
-                    "https://cineglow-zdz6.onrender.com/api/bookings",
+                    "https://cineglow-backend-wufw.onrender.com/api/bookings",
                     {
                         method: "POST",
                         headers: {
