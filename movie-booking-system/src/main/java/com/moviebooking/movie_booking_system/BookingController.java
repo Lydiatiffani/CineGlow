@@ -9,7 +9,7 @@ import java.util.Map;
 @RestController
 public class BookingController {
 
-    private Map<Integer, Booking> bookings = new HashMap<>();
+    private Map<Long, Booking> bookings = new HashMap<>();
 
     @PostMapping("/api/bookings")
     public String addBooking(@RequestBody Booking booking) {
@@ -18,7 +18,7 @@ public class BookingController {
     }
 
     @GetMapping("/api/bookings/{id}")
-    public Booking getBooking(@PathVariable int id) {
+    public Booking getBooking(@PathVariable long id) {
         return bookings.get(id);
     }
 }
