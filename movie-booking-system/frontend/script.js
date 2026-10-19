@@ -280,7 +280,11 @@ function showSeats(movie) {
     document.getElementById("continue-booking").addEventListener(
         "click",
         function () {
-            showBookingSummary(movie, Array.from(selectedSeats).sort(), pricePerSeat);
+            showBookingSummary(
+                movie,
+                Array.from(selectedSeats).sort(),
+                pricePerSeat
+            );
         }
     );
 }
@@ -323,12 +327,54 @@ function showBookingSummary(movie, seats, pricePerSeat) {
         showSeats(movie);
     });
 
-    document.getElementById("confirm-demo").addEventListener("click", function () {
-        document.getElementById("summary-message").textContent =
-            "Demo booking complete! No payment was taken and no booking was saved.";
-        document.getElementById("confirm-demo").disabled = true;
-        document.getElementById("confirm-demo").textContent = "Demo Complete ✓";
-    });
+    // Send the booking to the Spring Boot backend.
+    document.getElementById("confirm-demo").addEventListener(
+        "click",
+        async function () {
+            const button = document.getElementById("confirm-demo");
+            const message = document.getElementById("summary-message");
+
+            button.disabled = true;
+            button.textContent = "Saving booking...";
+            message.textContent = "";
+
+            const booking = {
+                bookingId: Date.now(),
+                movieName: movie.title,
+                seats: seats.join(", ")
+            };
+
+            try {
+                const response = await fetch(
+                    "https://cineglow-zdz6.onrender.com/api/bookings",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(booking)
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Booking could not be saved.");
+                }
+
+                const result = await response.text();
+
+                message.textContent =
+                    result + " No payment was taken.";
+
+                button.textContent = "Booking Saved ✓";
+            } catch (error) {
+                message.textContent =
+                    "Could not save booking. Please try again.";
+
+                button.disabled = false;
+                button.textContent = "Confirm Demo Booking 🎟️";
+            }
+        }
+    );
 }
 
 function goHome() {
